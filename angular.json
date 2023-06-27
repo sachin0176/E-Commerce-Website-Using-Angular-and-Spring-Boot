@@ -13,6 +13,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "p-cancelable",
+              "tiny-emitter",
+              "cross-fetch",
+              "clipboard",
+              "@sindresorhus/to-milliseconds",
+              "parse-ms",
+              "detect-node",
+              "q"
+
+
+            ],
             "outputPath": "dist/angular-ecommerce",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -23,11 +35,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"
             ],
             "scripts": []
           },
-          "configurations": {
+          "configurations": { 
             "production": {
               "budgets": [
                 {
@@ -49,6 +64,15 @@
               ],
               "outputHashing": "all"
             },
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ]
+            },
+            
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -65,6 +89,9 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-ecommerce:build:production"
+            },
+            "qa": {
+              "browserTarget": "angular-ecommerce:build:qa"
             },
             "development": {
               "browserTarget": "angular-ecommerce:build:development"
@@ -97,5 +124,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "2e63a678-243f-43c7-9e8c-e04761bf0c11"
   }
 }

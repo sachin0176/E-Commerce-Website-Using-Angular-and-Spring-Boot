@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  luv2shopApiUrl: "https://localhost:8443/api",
+  stripePublishableKey: "pk_test_51NENVCSDUSWUOPmAK1JPHUCpg4zgmRKG2lzJCmxKqxAPZDHEvyyzQJv3OC2RtwYUxGf8MZv4IH3dO8Hfk1DqFfIP00rzgMYpVw"
+
 };
 
 /*
